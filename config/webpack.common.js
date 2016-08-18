@@ -20,6 +20,12 @@ module.exports = {
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true
       }
+    }),
+    new webpack.SourceMapDevToolPlugin({
+        filename: '[file].map',
+        include: ['app.js'],
+        exclude: ['vendor.js'],
+        columns: false
     })
   ],
   module: {
@@ -44,5 +50,5 @@ module.exports = {
         loader: 'url?limit=10000&minetype=image/svg+xml' }
     ]
   },
-  devtool: 'eval-source-map'
+  devtool: 'cheap-module-source-map'
 };
